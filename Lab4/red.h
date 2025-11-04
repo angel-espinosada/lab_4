@@ -3,6 +3,8 @@
 
 class Red
 {
+private:
+
 
 public:
     Red();
