@@ -3,6 +3,7 @@
 
 class Red
 {
+
 private:
 
 
