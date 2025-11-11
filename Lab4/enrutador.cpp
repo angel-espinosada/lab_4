@@ -6,6 +6,7 @@
 #include <string>
 
 Enrutador::Enrutador() {}
+
 Enrutador::Enrutador(string n, map<string, int> v) : nombre(n), vecinos(v) {
     // Llenar tabla con vecinos directos
     for (auto &par : vecinos) {

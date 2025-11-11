@@ -23,25 +23,7 @@ int main()
 
         case 1:
         {
-            string nombre;
-            int nVecinos;
-            map<string, int> vecinos;
 
-            cout << "Nombre del enrutador: ";
-            cin >> nombre;
-
-            cout << "Cantidad de vecinos: ";
-            cin >> nVecinos;
-
-            for (int i = 0; i < nVecinos; i++) {
-                string vecino;
-                int costo;
-                cout << "Vecino " << i + 1 << " (nombre costo): ";
-                cin >> vecino >> costo;
-                vecinos[vecino] = costo;
-            }
-
-            red[nombre] = Enrutador(nombre, vecinos);
 
             break;
         }
