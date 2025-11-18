@@ -29,18 +29,7 @@ int main()
         }
         case 2:{
 
-            cout << "\n=== Red de Enrutadores ===\n";
-            if (red.empty()) {
-                cout << "La red está vacía.\n";
-            } else {
-                for (auto &par : red) {
-                    string nombre = par.first;
-                    Enrutador &enrutador = par.second;
 
-                    cout << "\n--- Enrutador: " << nombre << " ---\n";
-                    enrutador.mostrarEnrutador();
-                }
-            }
         }
 
         case 3:{

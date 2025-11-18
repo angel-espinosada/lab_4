@@ -5,39 +5,49 @@
 #include <vector>
 #include <string>
 
-Enrutador::Enrutador() {}
-
-Enrutador::Enrutador(string n, map<string, int> v) : nombre(n), vecinos(v) {
-    // Llenar tabla con vecinos directos
-    for (auto &par : vecinos) {
-        string vecino = par.first;
-        int costo = par.second;
-
-        InfoRuta ruta;
-        ruta.costo = costo;
-        ruta.siguienteSalto = vecino;
-        ruta.rutaCompleta = {nombre, vecino};
-
-        tablaEnrutamiento[vecino] = ruta;
-    }
-}
-void Enrutador::mostrarEnrutador() {
-    cout << "\nEnrutador: " << nombre << endl;
-    cout << "Vecinos directos:\n";
-    for (auto &v : vecinos)
-        cout << "> " << v.first << " (costo " << v.second << ")\n";
-
-    cout << "\nTabla de Enrutamiento:\n";
-    for (auto &t : tablaEnrutamiento) {
-        cout << "Destino: " << t.first
-             << "  Costo: " << t.second.costo
-             << " Siguiente salto: " << t.second.siguienteSalto
-             << "  Ruta: ";
-
-        for (auto &r : t.second.rutaCompleta)
-            cout << r << " ";
-        cout << endl;
-    }
+Enrutador::Enrutador() {
+    nombre = "";
 }
 
+// Constructor
+Enrutador::Enrutador(string nombre) {
+    this->nombre = nombre;
+}
 
+// Destructor
+Enrutador::~Enrutador() {
+    // No hay memoria dinámica, por ahora no hace nada
+}
+
+// Setter para cambiar el nombre
+void Enrutador::establecerNombre(string nuevoNombre) {
+    nombre = nuevoNombre;
+}
+
+// Getter para obtener el nombre
+string Enrutador::obtenerNombre() const {
+    return nombre;
+}
+
+// Agregar o actualizar un vecino con su costo
+void Enrutador::agregarVecino(string vecino, int costo) {
+    vecinos[vecino] = costo;  // si ya existe, lo actualiza
+}
+
+// Eliminar un vecino
+void Enrutador::eliminarVecino(string vecino) {
+    vecinos.erase(vecino);
+}
+
+// Mostrar vecinos por pantalla
+void Enrutador::mostrarVecinos() const {
+    cout << "Vecinos de " << nombre << ":" << endl;
+    for (const auto& par : vecinos) {
+        cout << " -> " << par.first << " con costo: " << par.second << endl;
+    }
+}
+
+// Obtener mapa completo de vecinos
+map<string, int> Enrutador::obtenerVecinos() const {
+    return vecinos;
+}

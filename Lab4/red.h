@@ -17,9 +17,13 @@ public:
     Red();
 
     // Métodos
-    void agregarEnrutador(const string& nombre, const map<string, int>& vecinos);
+    //void agregarEnrutador(const string& nombre, const map<string, int>& vecinos);
+     void agregarEnrutador(const string& nombre);
     void eliminarEnrutador(const string& nombre);
     bool existeEnrutador(const string& nombre) const;
+    void guardarEnArchivo(const string& nombreArchivo) const;
+    void cargarDesdeArchivo(const string& nombreArchivo);
+    void Red::conectarEnrutadores(const string& origen, const string& destino, int costo);
 
     // Dijkstra
     map<string, int> calcularRutasDesde(const string& origen);
@@ -31,7 +35,7 @@ public:
 
     // Mostrar información
     void mostrarRed() const;
-    void mostrarTablaEnrutamiento(const string& nombre) const;
+
 };
 
 #endif // RED_H

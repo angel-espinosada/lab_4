@@ -19,16 +19,30 @@ class Enrutador
 {
 private:
     string nombre;
-    map<string, int> vecinos;//Vecinos con su costo.
-    map<string, InfoRuta> tablaEnrutamiento;
+     map<string, int> vecinos;  // vecinos directos y sus costos
 
 public:
     Enrutador();
-    Enrutador(string n,map<string, int>v,map<string, InfoRuta> tabla);
+    Enrutador(string nombre);
+    //  Destructor
+    ~Enrutador();
+    //  Setters
+    void establecerNombre(string nuevoNombre);
 
-    void mostrarEnrutador();
-    void agregarEnrutador();
-    void elminarEnrutador();
+    //  Getters
+    string obtenerNombre() const;
+
+    // Agregar o modificar un vecino
+    void agregarVecino(string vecino, int costo);
+
+    // Eliminar un vecino
+    void eliminarVecino(string vecino);
+
+    //  Mostrar vecinos
+    void mostrarVecinos() const;
+
+    // Obtener el mapa de vecinos
+    map<string, int> obtenerVecinos() const;
 
 
 };
