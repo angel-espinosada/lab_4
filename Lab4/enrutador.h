@@ -14,8 +14,6 @@ struct InfoRuta {
 };
 
 class Enrutador
-
-
 {
 private:
     string nombre;
